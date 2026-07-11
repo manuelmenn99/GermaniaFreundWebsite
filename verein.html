@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Der Verein | F.C. Germania 1919 Freund e.V.</title>
+    <meta name="description" content="Erfahre mehr über die Geschichte des F.C. Germania 1919 Freund e.V., unseren Vorstand und wie du Mitglied in unserem Verein werden kannst.">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="Bilder/Allgemein/Logo.png" alt="Germania Freund Logo" class="logo-icon" onerror="this.src='QR_Code_Homepage.png';">
+                <div class="logo-text">Germania<span>Freund</span></div>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li class="dropdown">
+                        <a href="mannschaften.html" class="nav-link dropdown-toggle">Mannschaften <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Senioren</li>
+                            <li><a href="erste-mannschaft.html">1. Herren</a></li>
+                            <li><a href="zweite-mannschaft.html">2. Herren</a></li>
+                            <li><a href="frauenmannschaft.html">1. Damen</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-header">Junioren</li>
+                            <li><a href="mannschaften.html#jugend">Jugendteams</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="laufgruppe.html" class="nav-link">Laufgruppe</a></li>
+                    <li class="dropdown">
+                        <a href="verein.html" class="nav-link dropdown-toggle">Verein <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="verein.html#ueber-uns">Über Uns</a></li>
+                            <li><a href="verein.html#vorstand">Der Vorstand</a></li>
+                            <li><a href="verein.html#geschichte">Geschichte</a></li>
+                            <li><a href="verein.html#camps">Fußball-Camps</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <button class="burger" aria-label="Menü öffnen">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- PAGE HEADER --- -->
+    <section class="section section-bg" style="padding-top: calc(var(--header-height) + 3rem); padding-bottom: 3rem;">
+        <div class="container">
+            <h1 class="text-center text-gradient" style="margin-bottom: 0.5rem;">Der Verein</h1>
+            <p class="text-center text-muted" style="max-width: 600px; margin: 0 auto;">Erfahren Sie mehr über unseren Traditionsverein aus Aachen-Brand, den Vorstand und unsere Historie.</p>
+        </div>
+    </section>    <!-- --- VEREIN SELECTOR BUTTONS --- -->
+    <section class="section" style="padding: 3rem 0 1rem;">
+        <div class="container">
+            <div class="team-selector reveal">
+                <button class="team-btn active" data-target="ueber-uns">Über Uns</button>
+                <button class="team-btn" data-target="vorstand">Der Vorstand</button>
+                <button class="team-btn" data-target="geschichte">Geschichte</button>
+                <button class="team-btn" data-target="camps">Fußball-Camps</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- UEBER UNS SECTION --- -->
+    <section class="section team-section-wrapper active" id="ueber-uns" style="padding: 1rem 0 5rem;">
+        <div class="container">
+            <div class="grid grid-2" style="margin-bottom: 4rem;">
+                <div class="reveal">
+                    <h2>Wir leben die Gemeinschaft</h2>
+                    <p>Der F.C. Germania 1919 Freund e.V. ist mehr als nur ein Fußballverein. Wir sind ein lebendiger Treffpunkt für sportbegeisterte Menschen im Aachener Osten. Seit über einem Jahrhundert stehen bei uns Zusammenhalt, Fairplay und die Freude am gemeinsamen Sport im Vordergrund.</p>
+                    <p>Auf unserer gepflegten Platzanlage an der Birkenstraße bieten wir Sportlern aller Altersklassen ein sportliches Zuhause – von den kleinsten Bambini in der Jugendspielgemeinschaft (JSG) über die Senioren- und Frauenmannschaften bis hin zu unserer engagierten Lauf- und Walkinggruppe.</p>
+                </div>
+                <div class="card card-accent reveal" style="display: flex; flex-direction: column; justify-content: center; padding: 2rem;">
+                    <h3 class="text-accent" style="margin-bottom: 1rem;">Unser Leitbild</h3>
+                    <ul style="list-style: none; padding: 0; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><strong style="color: var(--text-primary);">&#10004; Familiäre Atmosphäre:</strong> Bei uns kennt und unterstützt man sich gegenseitig.</li>
+                        <li><strong style="color: var(--text-primary);">&#10004; Jugendförderung:</strong> Die Ausbildung unserer jüngsten Sportler liegt uns besonders am Herzen.</li>
+                        <li><strong style="color: var(--text-primary);">&#10004; Breitensport:</strong> Neben dem Leistungsgedanken bieten wir Raum für Fitness und Gesundheit.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mitgliedschaft -->
+            <div class="reveal" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem;">
+                <h2>Mitgliedschaft</h2>
+                <p style="margin-bottom: 2rem;">Werden Sie Teil der Germania-Familie! Egal ob aktiv als Spieler auf dem Platz, Läufer im Treff oder als passives Mitglied zur Unterstützung unseres Vereins – wir freuen uns über jeden, der unseren Weg mitgestalten möchte. Laden Sie einfach den Antrag herunter und schicken Sie ihn ausgefüllt per Mail oder geben Sie ihn persönlich am Sportplatz ab.</p>
+                
+                <div class="download-list">
+                    <!-- Mitgliedsantrag -->
+                    <div class="download-item">
+                        <div class="download-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <div class="download-info">
+                            <div class="download-name">Mitgliedsantrag 2026</div>
+                            <div class="download-size">PDF (ca. 445 KB)</div>
+                        </div>
+                        <a href="downloads/Mitgliedsantrag_2026.pdf" download class="download-btn" aria-label="Mitgliedsantrag 2026 herunterladen">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Satzung -->
+                    <div class="download-item">
+                        <div class="download-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="download-info">
+                            <div class="download-name">Vereinssatzung (Stand 2023)</div>
+                            <div class="download-size">PDF (ca. 150 KB)</div>
+                        </div>
+                        <a href="downloads/Satzung_2023.pdf" download class="download-btn" aria-label="Vereinssatzung herunterladen">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- VORSTAND SECTION --- -->
+    <section class="section team-section-wrapper" id="vorstand" style="padding: 1rem 0 5rem;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="reveal">
+                    <h2>Gemeinschaft und Führung</h2>
+                    <p>Hinter einem erfolgreichen Verein steht ein engagiertes Team. Unser Vereinsvorstand setzt sich mit Herzblut für die Weiterentwicklung von F.C. Germania 1919 Freund e.V. ein, fördert die Jugendarbeit und pflegt das Vereinsleben auf unserer Sportanlage an der Birkenstraße.</p>
+                    <p>Haben Sie Fragen zur Vereinsstruktur, Sponsoring oder Projekten? Unsere Vorstandsmitglieder stehen Ihnen gerne für Fragen und Anregungen zur Verfügung.</p>
+                </div>
+                
+                <div class="card card-accent reveal">
+                    <h3 class="text-accent" style="margin-bottom: 1.5rem;">1. Vorsitzende*r</h3>
+                    <div style="margin-bottom: 1.5rem;">                        
+                        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.2rem;">Martin Pieren</p>
+                    </div>
+                    
+                    <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;">
+                        <h4 style="margin-bottom: 0.8rem;">Kontaktdaten Vorstand</h4>
+                        <div class="footer-contact-item" style="margin-bottom: 0.8rem;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <a href="mailto:vorstand@germania-freund.de" style="color: var(--text-secondary); text-decoration: underline;">vorstand@germania-freund.de</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+49 176 20481295</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weitere Vorstandsmitglieder -->
+            <div class="reveal" style="margin-top: 4rem;">
+                <h3 class="text-center" style="margin-bottom: 2rem; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">Weitere Vorstandsmitglieder</h3>
+                <div class="grid grid-3">
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">2. Vorsitzende*r</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Andreas Clintgens</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">1. Kassierer*in</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Dennis Bey</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">2. Kassierer*in</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Alexander Gier</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">1. Geschäftsführer*in</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Tatjana Schmidt</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">2. Geschäftsführer*in</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Manuel Mennicken</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Jugendvorsitzende*r</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Dirk Havenith</p>
+                    </div>
+                    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Öffentlichkeitsverantwortliche*r</h4>
+                        <p style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0;">Paul Vondenbusch</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- HISTORIE SECTION --- -->
+    <section class="section team-section-wrapper" id="geschichte" style="padding: 1rem 0 5rem;">
+        <div class="container">
+            <h2>Unsere Geschichte (seit 1919)</h2>
+            <p>Über ein Jahrhundert Germania Freund. Gegründet im Jahr 1919, blickt unser Verein auf eine bewegte Geschichte zurück, geprägt von sportlichen Höhen und Tiefen, aber vor allem von unerschütterlicher Gemeinschaft und ehrenamtlichem Engagement.</p>
+            <p style="margin-bottom: 2.5rem;">Für alle Geschichtsinteressierten bieten wir hier unsere offiziellen Jubiläumsbücher zum Download an. Sie dokumentieren Meilensteine, historische Fotos und Berichte von Zeitzeugen aus den ersten 60, 75 & 100 Jahren unseres Bestehens.</p>
+            
+            <div class="download-list">
+                <!-- 60 Jahre Buch -->
+                <div class="download-item reveal">
+                    <div class="download-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="download-info">
+                        <div class="download-name">Jubiläumsheft - 60 Jahre</div>
+                        <div class="download-size">PDF (ca. 24,2 MB)</div>
+                    </div>
+                    <a href="downloads/Jubilaeumsheft_60_Jahre.pdf" download class="download-btn" aria-label="Jubiläumsheft 60 Jahre FCG herunterladen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
+                </div>
+                
+                <!-- 75 Jahre Buch -->
+                <div class="download-item reveal">
+                    <div class="download-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="download-info">
+                        <div class="download-name">Jubiläumsheft - 75 Jahre</div>
+                        <div class="download-size">PDF (ca. 43,7 MB)</div>
+                    </div>
+                    <a href="downloads/Jubilaeumsheft_75_Jahre.pdf" download class="download-btn" aria-label="Jubiläumsheft 75 Jahre FCG herunterladen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
+                </div>
+				
+				<!-- 100 Jahre Buch -->
+                <div class="download-item reveal">
+                    <div class="download-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="download-info">
+                        <div class="download-name">Jubiläumsheft - 100 Jahre</div>
+                        <div class="download-size">PDF (ca. 24,2 MB)</div>
+                    </div>
+                    <a href="downloads/Jubilaeumsheft_100_Jahre.pdf" download class="download-btn" aria-label="Jubiläumsheft 60 Jahre FCG herunterladen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CAMPS SECTION --- -->
+    <section class="section team-section-wrapper" id="camps" style="padding: 1rem 0 5rem;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="reveal">
+                    <h2>Germania Fußball-Camps</h2>
+                    <p>In den Schulferien veranstalten wir regelmäßig professionelle Fußball-Camps für Jungen und Mädchen im Alter von 6 bis 14 Jahren. Unter Anleitung von erfahrenen Jugendtrainern trainieren die Kids Technik, Taktik, Spielformen und Teamgeist – und haben vor allem jede Menge Spaß!</p>
+                    <p>Unsere Camps finden jeweils im Frühjahr und Sommer auf unserer Sportanlage statt. Die Teilnehmer erhalten täglich warmes, sportgerechtes Mittagessen, gesunde Snacks sowie ein offizielles Camp-Trikot-Set.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 0.8rem; color: var(--accent);">Nächste Termine</h4>
+                        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+                            <li><strong style="color: var(--text-primary);">&#128197; Ostercamp 2026:</strong> Ausgebucht</li>
+                            <li><strong style="color: var(--text-primary);">&#128197; Sommercamp 2026:</strong> 27. Juli – 31. Juli (Anmeldung geöffnet!)</li>
+                            <li><strong style="color: var(--text-primary);">&#128197; Herbstcamp 2026:</strong> Termine folgen in Kürze</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card card-accent reveal" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 class="text-accent" style="margin-bottom: 1rem;">Camp-Leistungen</h3>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.95rem;">
+                            <li>&#9989; Täglich 2 Trainingseinheiten (9:30 - 15:30 Uhr)</li>
+                            <li>&#9989; Warmes, sportgerechtes Mittagessen &amp; Getränke</li>
+                            <li>&#9989; Obst- und Snackpausen</li>
+                            <li>&#9989; Offizielles Camp-Trikot, Hose und Stutzen</li>
+                            <li>&#9989; Camp-Teilnahmeurkunde &amp; Erinnerungspokal</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; margin-top: 1.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Haben Sie Fragen zur Anmeldung? Schreiben Sie uns eine E-Mail.</p>
+                        <div class="footer-contact-item" style="margin-bottom: 0;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <a href="mailto:camps@germania-freund.de" style="color: var(--text-secondary); text-decoration: underline;">camps@germania-freund.de</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+                    <img src="Bilder/Allgemein/Logo.png" alt="Germania Freund Logo" class="logo-icon" onerror="this.src='QR_Code_Homepage.png';">
+                    <div class="logo-text">Germania<span>Freund</span></div>
+                </a>
+                <p class="footer-col-desc">Ihr sympathischer Sportverein im Aachener Osten. Seit 1919 leben wir die Leidenschaft für den Sport und die Gemeinschaft vor Ort.</p>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Schnellzugriff</h4>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="index.html">Startseite</a></li>
+                    <li class="footer-link-item"><a href="mannschaften.html">Kader & Mannschaften</a></li>
+                    <li class="footer-link-item"><a href="laufgruppe.html">Lauf- & Walkingtreff</a></li>
+                    <li class="footer-link-item"><a href="verein.html">Der Verein & Vorstand</a></li>
+                    <li class="footer-link-item"><a href="kontakt.html">Kontakt & Anfahrt</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Kontakt & Clubheim</h4>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Birkenstraße 40, 52078 Aachen</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@germania-freund.de</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>+49 178 4013345 (Vorstand)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <div>
+                &copy; <span id="current-year">2026</span> F.C. Germania 1919 Freund e.V. Alle Rechte vorbehalten.
+            </div>
+            <div class="footer-legal-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
