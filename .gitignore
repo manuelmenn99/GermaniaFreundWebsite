@@ -1,0 +1,11 @@
+# Windows system files
+desktop.ini
+Thumbs.db
+ehthumbs.db
+
+# OS X system files
+.DS_Store
+
+# Scratch files
+*.tmp
+*.log

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie | F.C. Germania 1919 Freund e.V.</title>
+    <meta name="description" content="Impressionen und Bilder rund um den F.C. Germania 1919 Freund e.V. Erlebe Spielszenen, Vereinsleben und unvergessliche Momente.">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <style>
+        /* local additions for gallery page */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1.5rem;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .gallery-category {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: contain;
+        }
+        
+        .lightbox-caption {
+            margin-top: 1rem;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .lightbox-close:hover {
+            color: var(--accent);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .lightbox-nav:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .lightbox-prev {
+            left: -80px;
+        }
+        
+        .lightbox-next {
+            right: -80px;
+        }
+        
+        @media (max-width: 768px) {
+            .lightbox-prev {
+                left: 10px;
+                background: rgba(10, 10, 10, 0.8);
+            }
+            .lightbox-next {
+                right: 10px;
+                background: rgba(10, 10, 10, 0.8);
+            }
+            .lightbox-close {
+                right: 10px;
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="Bilder/Allgemein/Logo.png" alt="Germania Freund Logo" class="logo-icon" onerror="this.src='QR_Code_Homepage.png';">
+                <div class="logo-text">Germania<span>Freund</span></div>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="index.html#aktuelles" class="nav-link">Aktuelles</a></li>
+                    <li class="dropdown">
+                        <a href="mannschaften.html" class="nav-link dropdown-toggle">Mannschaften <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Senioren</li>
+                            <li><a href="erste-mannschaft.html">1. Herren</a></li>
+                            <li><a href="zweite-mannschaft.html">2. Herren</a></li>
+                            <li><a href="frauenmannschaft.html">1. Damen</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-header">Junioren</li>
+                            <li><a href="mannschaften.html#jugend">Jugendteams</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="laufgruppe.html" class="nav-link">Laufgruppe</a></li>
+                    <li class="dropdown">
+                        <a href="verein.html" class="nav-link dropdown-toggle">Verein <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="verein.html#ueber-uns">Über Uns</a></li>
+                            <li><a href="verein.html#vorstand">Der Vorstand</a></li>
+                            <li><a href="verein.html#geschichte">Geschichte</a></li>
+                            <li><a href="verein.html#camps">Fußball-Camps</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <button class="burger" aria-label="Menü öffnen">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- PAGE HEADER --- -->
+    <section class="section section-bg" style="padding-top: calc(var(--header-height) + 3rem); padding-bottom: 3rem;">
+        <div class="container">
+            <h1 class="text-center text-gradient" style="margin-bottom: 0.5rem;">Bildergalerie</h1>
+            <p class="text-center text-muted" style="max-width: 600px; margin: 0 auto;">Impressionen, Action und emotionale Momente rund um das Vereinsleben der Germania.</p>
+        </div>
+    </section>
+
+    <!-- --- GALLERY SECTION --- -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-grid">
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/1_Mannschaft_22_23.JPG" data-caption="Unsere 1. Mannschaft vor dem Heimspiel an der Birkenstraße.">
+                    <img src="Bilder/Fußball/1_Mannschaft_22_23.JPG" alt="1. Herrenmannschaft">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Senioren</span>
+                        <div class="gallery-title">1. Herrenmannschaft</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/2_Mannschaft_22_23.JPG" data-caption="Die 2. Herrenmannschaft in der Saison 2022/2023.">
+                    <img src="Bilder/Fußball/2_Mannschaft_22_23.JPG" alt="2. Herrenmannschaft">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Senioren</span>
+                        <div class="gallery-title">2. Herrenmannschaft</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/DSC_0004.JPG" data-caption="Spannende Spielszene und Zweikampf im Strafraum.">
+                    <img src="Bilder/Fußball/DSC_0004.JPG" alt="Spielszene Action">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Action</span>
+                        <div class="gallery-title">Dynamik auf dem Platz</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/DSC_0016.JPG" data-caption="Konzentration und Siegeswille bei jedem Angriffsspiel.">
+                    <img src="Bilder/Fußball/DSC_0016.JPG" alt="Konzentration">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Spieltag</span>
+                        <div class="gallery-title">Voller Einsatz</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/IMG_5994.JPG" data-caption="Gemeinsamer Jubel nach einem wichtigen Treffer.">
+                    <img src="Bilder/Fußball/IMG_5994.JPG" alt="Torjubel">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Emotionen</span>
+                        <div class="gallery-title">Grenzenloser Jubel</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/IMG_6995.JPG" data-caption="Hart umkämpfte Bälle auf dem Kunstrasenplatz.">
+                    <img src="Bilder/Fußball/IMG_6995.JPG" alt="Spielszene">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Action</span>
+                        <div class="gallery-title">Zweikampfstärke</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/IMG_7002.JPG" data-caption="Präzise Flanke in den gegnerischen Strafraum.">
+                    <img src="Bilder/Fußball/IMG_7002.JPG" alt="Flanke">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Spieltag</span>
+                        <div class="gallery-title">Flankenspiel</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/Foto mit Wolfgang Frank Andy.jpg" data-caption="Historisches Erinnerungsfoto mit Bundesliga-Legende Wolfgang Frank.">
+                    <img src="Bilder/Fußball/Foto mit Wolfgang Frank Andy.jpg" alt="Wolfgang Frank">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Historie</span>
+                        <div class="gallery-title">Mit Wolfgang Frank</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-src="Bilder/Fußball/Mannschaftsbild 2010.jpg" data-caption="Ein Blick zurück: Unser Seniorenkader im Jahr 2010.">
+                    <img src="Bilder/Fußball/Mannschaftsbild 2010.jpg" alt="Kader 2010">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Historie</span>
+                        <div class="gallery-title">Mannschaftsbild 2010</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- LIGHTBOX TEMPLATE --- -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Schließen">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Vorheriges Bild">&#10094;</button>
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Nächstes Bild">&#10095;</button>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- --- FOOTER --- -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+                    <img src="Bilder/Allgemein/Logo.png" alt="Germania Freund Logo" class="logo-icon" onerror="this.src='QR_Code_Homepage.png';">
+                    <div class="logo-text">Germania<span>Freund</span></div>
+                </a>
+                <p class="footer-col-desc">Dein Sportverein im Aachener Südosten. Seit 1919 leben wir die Leidenschaft für den Sport und die Gemeinschaft vor Ort.</p>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Schnellzugriff</h4>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="index.html">Startseite</a></li>
+                    <li class="footer-link-item"><a href="index.html#aktuelles">Aktuelles</a></li>
+                    <li class="footer-link-item"><a href="mannschaften.html">Kader & Mannschaften</a></li>
+                    <li class="footer-link-item"><a href="laufgruppe.html">Lauf- & Walkingtreff</a></li>
+                    <li class="footer-link-item"><a href="verein.html">Der Verein & Vorstand</a></li>
+                    <li class="footer-link-item"><a href="galerie.html">Bildergalerie</a></li>
+                    <li class="footer-link-item"><a href="kontakt.html">Kontakt & Anfahrt</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Kontakt & Clubheim</h4>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Birkenstraße 40, 52078 Aachen</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@germania-freund.de</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>+49 178 4013345 (Vorstand)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <div>
+                &copy; <span id="current-year">2026</span> F.C. Germania 1919 Freund e.V. Alle Rechte vorbehalten.
+            </div>
+            <div class="footer-legal-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Lightbox Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            
+            let currentIndex = 0;
+            
+            const showImage = (index) => {
+                if (index < 0) index = galleryItems.length - 1;
+                if (index >= galleryItems.length) index = 0;
+                
+                currentIndex = index;
+                const item = galleryItems[currentIndex];
+                const src = item.getAttribute('data-src');
+                const caption = item.getAttribute('data-caption');
+                
+                lightboxImg.src = src;
+                lightboxCaption.textContent = caption;
+            };
+            
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    showImage(index);
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Disable page scrolling
+                });
+            });
+            
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = ''; // Re-enable page scrolling
+            };
+            
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // Close lightbox on clicking backdrop
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            lightboxPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentIndex - 1);
+            });
+            
+            lightboxNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentIndex + 1);
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+                if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            });
+        });
+    </script>
+</body>
+</html>
