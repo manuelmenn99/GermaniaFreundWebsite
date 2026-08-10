@@ -339,6 +339,7 @@ p {
 /* Mobile dropdown styles */
 @media (max-width: 992px) {
     .dropdown-menu {
+        display: none; /* Hide by default on mobile */
         position: static;
         transform: none;
         opacity: 1;
@@ -347,7 +348,6 @@ p {
         border: none;
         box-shadow: none;
         padding: 0.5rem 0 0 0;
-        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.4rem;
@@ -356,24 +356,34 @@ p {
         height: auto;
     }
     
+    .dropdown.active .dropdown-menu {
+        display: flex; /* Show when active */
+    }
+    
+    .dropdown.active .arrow {
+        transform: rotate(180deg);
+    }
+    
     .dropdown-menu li a {
         padding: 0.3rem 1rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: var(--text-secondary);
         text-align: center;
     }
     
     .dropdown-menu li a:hover {
-        padding-left: 1rem;
         background: transparent;
         color: var(--accent);
     }
     
     .dropdown-header {
-        padding: 0.3rem 1rem 0.1rem;
-        font-size: 0.75rem;
-        color: var(--text-muted);
+        padding: 0.5rem 1rem 0.1rem;
+        font-size: 0.8rem;
+        color: var(--accent);
         text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
     .dropdown-divider {
@@ -844,7 +854,8 @@ p {
     transform-style: preserve-3d;
 }
 
-.youth-item:hover .youth-item-inner {
+.youth-item:hover .youth-item-inner,
+.youth-item.flipped .youth-item-inner {
     transform: rotateY(180deg);
 }
 
@@ -871,7 +882,8 @@ p {
     transition: var(--transition-smooth);
 }
 
-.youth-item:hover .youth-item-front {
+.youth-item:hover .youth-item-front,
+.youth-item.flipped .youth-item-front {
     box-shadow: var(--accent-shadow);
     border-color: var(--accent);
 }
@@ -1001,6 +1013,12 @@ p {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .time-table {

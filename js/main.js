@@ -32,13 +32,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Close menu when a link is clicked (useful for single-page links)
-        navLinks.querySelectorAll('a').forEach(link => {
+        // Close menu when a link is clicked (except dropdown toggles on mobile)
+        navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
                 navLinks.classList.remove('mobile-active');
                 document.body.style.overflow = '';
             });
+        });
+
+        // Toggle dropdowns on mobile
+        const dropdowns = navLinks.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const isActive = dropdown.classList.contains('active');
+                        // Close other dropdowns
+                        dropdowns.forEach(d => {
+                            if (d !== dropdown) d.classList.remove('active');
+                        });
+                        
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
         });
     }
     
@@ -147,7 +169,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     
-    // --- 6. AUTO UPDATE COPYRIGHT YEAR ---
+    // --- 7. MOBILE CARD FLIP FOR YOUTH TEAMS ---
+    const youthItems = document.querySelectorAll('.youth-item');
+    youthItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                // If the user clicked on a link (like email), don't prevent default or toggle flip
+                if (e.target.closest('a')) {
+                    return;
+                }
+                e.preventDefault();
+                
+                const isFlipped = item.classList.contains('flipped');
+                // Close other flipped cards
+                youthItems.forEach(y => {
+                    if (y !== item) y.classList.remove('flipped');
+                });
+                
+                item.classList.toggle('flipped');
+            }
+        });
+    });
+
+    // --- 8. AUTO UPDATE COPYRIGHT YEAR ---
     const yearEl = document.getElementById('current-year');
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
