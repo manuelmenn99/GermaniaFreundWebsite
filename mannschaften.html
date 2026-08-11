@@ -37,7 +37,7 @@
                             <li><a href="mannschaften.html#jugend">Jugendteams</a></li>
                         </ul>
                     </li>
-                    <li><a href="laufgruppe.html" class="nav-link">Laufgruppe</a></li>
+                    <li><a href="laufgruppe.html" class="nav-link">Laufgruppe &amp; Gymnastik</a></li>
                     <li class="dropdown">
                         <a href="verein.html" class="nav-link dropdown-toggle">Verein <span class="arrow">&#9662;</span></a>
                         <ul class="dropdown-menu">
@@ -121,22 +121,38 @@
                     </div>
                 </div>
                 
-                <!-- Frauenmannschaft (Zentriert darunter) -->
-                <div class="reveal" style="grid-column: 1 / -1; display: flex; justify-content: center; margin-top: 2rem;">
-                    <div class="team-card" style="max-width: 570px; width: 100%;">
-                        <div class="team-card-img" style="height: 320px;">
-                            <img src="Bilder/Allgemein/2324_B_Juniorinnen.jpg" alt="Frauenmannschaft Germania Freund" onerror="this.src='Bilder/Fußball/Herren_03.jpg';">
+                <!-- Frauenmannschaft -->
+                <div class="team-card reveal">
+                    <div class="team-card-img">
+                        <img src="Bilder/Allgemein/2324_B_Juniorinnen.jpg" alt="Frauenmannschaft Germania Freund" onerror="this.src='Bilder/Fußball/Herren_03.jpg';">
+                    </div>
+                    <div class="team-card-content" style="display: flex; flex-direction: column; height: calc(100% - 320px);">
+                        <h2 class="text-accent" style="margin-bottom: 0.8rem;">Frauenmannschaft</h2>
+                        <p style="font-weight: 600; color: var(--text-primary);">Liga: Kreisliga A</p>
+                        <p style="flex-grow: 1;">Unsere neu gegründete Frauenmannschaft befindet sich aktuell im Aufbau. Wir freuen uns über fussballbegeisterte Spielerinnen jeden Niveaus, die Lust haben, Teil unseres neuen Teams zu werden!</p>
+                        
+                        <div class="team-card-meta" style="display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 1.2rem; padding-top: 1.2rem; font-size: 0.95rem;">
+                            <div><strong>Trainer*innen:</strong> Philipp Noppen &amp; Adam Nadolny</div>
+                            <div><strong>Training:</strong> Di 18:30 - 20:00 Uhr &amp; Do 20:00 - 21:30 Uhr</div>
+                            <a href="frauenmannschaft.html" class="btn btn-secondary btn-sm" style="margin-top: 0.8rem; align-self: flex-start;">Kader, Spielplan &amp; Infos</a>
                         </div>
-                        <div class="team-card-content" style="display: flex; flex-direction: column; height: calc(100% - 320px);">
-                            <h2 class="text-accent" style="margin-bottom: 0.8rem;">Frauenmannschaft</h2>
-                            <p style="font-weight: 600; color: var(--text-primary);">Liga: Kreisliga A</p>
-                            <p style="flex-grow: 1;">Unsere neu gegründete Frauenmannschaft befindet sich aktuell im Aufbau. Wir freuen uns über fussballbegeisterte Spielerinnen jeden Niveaus, die Lust haben, Teil unseres neuen Teams zu werden!</p>
-                            
-                            <div class="team-card-meta" style="display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 1.2rem; padding-top: 1.2rem; font-size: 0.95rem;">
-                                <div><strong>Trainer*innen:</strong> Philipp Noppen &amp; Adam Nadolny</div>
-                                <div><strong>Training:</strong> Di 18:30 - 20:00 Uhr &amp; Do 20:00 - 21:30 Uhr</div>
-                                <a href="frauenmannschaft.html" class="btn btn-secondary btn-sm" style="margin-top: 0.8rem; align-self: flex-start;">Kader, Spielplan &amp; Infos</a>
-                            </div>
+                    </div>
+                </div>
+
+                <!-- Alte Herren -->
+                <div class="team-card reveal">
+                    <div class="team-card-img">
+                        <img src="Bilder/Fußball/Herren_03.jpg" alt="Alte Herren Germania Freund" onerror="this.src='Bilder/Fußball/Herren_01.jpg';">
+                    </div>
+                    <div class="team-card-content" style="display: flex; flex-direction: column; height: calc(100% - 320px);">
+                        <h2 class="text-accent" style="margin-bottom: 0.8rem;">Alte Herren</h2>
+                        <p style="font-weight: 600; color: var(--text-primary);">Liga: Freundschaftsspiele &amp; Turniere</p>
+                        <p style="flex-grow: 1;">Unsere Alten Herren vereinen reichlich Erfahrung, sportlichen Ehrgeiz und jede Menge Spaß am Spiel. Neben den sportlichen Duellen steht bei uns die Geselligkeit und das aktive Vereinsleben im Vordergrund.</p>
+                        
+                        <div class="team-card-meta" style="display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 1.2rem; padding-top: 1.2rem; font-size: 0.95rem;">
+                            <div><strong>Ansprechpartner:</strong> Martin Pieren</div>
+                            <div><strong>Training:</strong> Mi 20:00 - 21:30 Uhr</div>
+                            <span class="btn btn-secondary btn-sm disabled" style="margin-top: 0.8rem; align-self: flex-start; opacity: 0.5; cursor: default;">Kein separater Spielplan</span>
                         </div>
                     </div>
                 </div>
@@ -370,7 +386,7 @@
                 <ul class="footer-links">
                     <li class="footer-link-item"><a href="index.html">Startseite</a></li>
                     <li class="footer-link-item"><a href="mannschaften.html">Kader & Mannschaften</a></li>
-                    <li class="footer-link-item"><a href="laufgruppe.html">Lauf- & Walkingtreff</a></li>
+                    <li class="footer-link-item"><a href="laufgruppe.html">Laufgruppe &amp; Gymnastik</a></li>
                     <li class="footer-link-item"><a href="verein.html">Der Verein & Vorstand</a></li>
                     <li class="footer-link-item"><a href="kontakt.html">Kontakt & Anfahrt</a></li>
                 </ul>
@@ -388,7 +404,7 @@
                 </div>
                 <div class="footer-contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>+49 178 4013345 (Vorstand)</span>
+                    <span>+49 176 20481295 (Vorstand)</span>
                 </div>
             </div>
         </div>
