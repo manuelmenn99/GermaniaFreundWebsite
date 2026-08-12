@@ -353,7 +353,7 @@
             galleryGrid.innerHTML = '';
             galleryImages.forEach((image, index) => {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = 'gallery-item reveal';
+                itemDiv.className = 'gallery-item';
                 itemDiv.setAttribute('data-src', image.src);
                 itemDiv.setAttribute('data-caption', image.title || '');
                 
