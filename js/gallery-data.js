@@ -39,6 +39,7 @@ const galleryImages = [
   { src: "Bilder/Fussball/IMG_7001.JPG", category: "Aktion", title: "" },
   { src: "Bilder/Fussball/IMG_7002.JPG", category: "Aktion", title: "" },
   { src: "Bilder/Fussball/IMG_7003.JPG", category: "Aktion", title: "" },
+  { src: "Bilder/Fussball/Jugend_06.jpg", category: "Aktion", title: "" },
   { src: "Bilder/Fussball/SDC10745.JPG", category: "Aktion", title: "" },
   { src: "Bilder/Fussball/SDC10746.JPG", category: "Aktion", title: "" },
   { src: "Bilder/Fussball/SDC10747.JPG", category: "Aktion", title: "" },
