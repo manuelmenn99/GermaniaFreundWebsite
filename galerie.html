@@ -273,72 +273,7 @@
     <section class="section">
         <div class="container">
             <div class="gallery-grid">
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/1_Mannschaft_22_23.JPG" data-caption="Unsere 1. Mannschaft vor dem Heimspiel an der Birkenstraße.">
-                    <img src="Bilder/Fussball/1_Mannschaft_22_23.JPG" alt="1. Herrenmannschaft">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Senioren</span>
-                        <div class="gallery-title">1. Herrenmannschaft</div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/2_Mannschaft_22_23.JPG" data-caption="Die 2. Herrenmannschaft in der Saison 2022/2023.">
-                    <img src="Bilder/Fussball/2_Mannschaft_22_23.JPG" alt="2. Herrenmannschaft">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Senioren</span>
-                        <div class="gallery-title">2. Herrenmannschaft</div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/DSC_0004.JPG" data-caption="">
-                    <img src="Bilder/Fussball/DSC_0004.JPG" alt="Spielszene Action">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/DSC_0016.JPG" data-caption="">
-                    <img src="Bilder/Fussball/DSC_0016.JPG" alt="Konzentration">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/IMG_5994.JPG" data-caption="">
-                    <img src="Bilder/Fussball/IMG_5994.JPG" alt="Torjubel">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/IMG_6995.JPG" data-caption="">
-                    <img src="Bilder/Fussball/IMG_6995.JPG" alt="Spielszene">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/IMG_7002.JPG" data-caption=".">
-                    <img src="Bilder/Fussball/IMG_7002.JPG" alt="Flanke">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item reveal" data-src="Bilder/Fussball/Foto mit Wolfgang Frank Andy.jpg" data-caption="">
-                    <img src="Bilder/Fussball/Foto mit Wolfgang Frank Andy.jpg" alt="Wolfgang Frank">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Junioren</span>
-                        <div class="gallery-title"></div>
-                    </div>
-                </div>               
-                
-                
+                <!-- Dynamisch geladen aus js/gallery-data.js -->
             </div>
         </div>
     </section>
@@ -407,10 +342,32 @@
         </div>
     </footer>
 
+    <script src="js/gallery-data.js"></script>
     <script src="js/main.js?v=1.4"></script>
     <script>
-        // Lightbox Logic
+        // Lightbox Logic & Dynamic Rendering
         document.addEventListener('DOMContentLoaded', () => {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            
+            // Build gallery items dynamically
+            galleryGrid.innerHTML = '';
+            galleryImages.forEach((image, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'gallery-item reveal';
+                itemDiv.setAttribute('data-src', image.src);
+                itemDiv.setAttribute('data-caption', image.title || '');
+                
+                itemDiv.innerHTML = `
+                    <img src="${image.src}" alt="${image.title || 'Galeriebild'}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">${image.category}</span>
+                        <div class="gallery-title">${image.title}</div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(itemDiv);
+            });
+
             const galleryItems = document.querySelectorAll('.gallery-item');
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
