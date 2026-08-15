@@ -127,9 +127,23 @@
         <div class="container">
             <h2 class="reveal">Aktuelles vom Verein</h2>
             
-            <div class="grid grid-2">
+            <div class="grid grid-3">
                 
-                <!-- News Item 1 -->
+                <!-- News Item 1 (Saisonauftakt Invitation) -->
+                <article class="card news-card reveal">
+                    <div class="news-img">
+                        <span class="news-tag">Event</span>
+                        <img src="Bilder/Allgemein/Saisonauftakt_2026.jpg" alt="Einladung Saisonauftakt" class="lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="cursor: pointer;">
+                    </div>
+                    <div class="news-info">
+                        <span class="news-date">15. August 2026</span>
+                        <h3>Einladung zum Saisonauftakt am 30.08.</h3>
+                        <p>Am Sonntag, den 30. August starten wir gemeinsam in die neue Saison! Freut euch auf spannende Heimspiele unserer Herrenteams sowie unserer neu formierten Frauen-Mannschaft. Für Speisen &amp; Getränke ist bestens gesorgt.</p>
+                        <a href="Bilder/Allgemein/Saisonauftakt_2026.jpg" class="btn btn-secondary btn-sm lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="align-self: flex-start;">Einladung ansehen</a>
+                    </div>
+                </article>
+                
+                <!-- News Item 2 -->
                 <article class="card news-card reveal">
                     <div class="news-img">
                         <span class="news-tag">Senioren</span>
@@ -143,11 +157,11 @@
                     </div>
                 </article>
                 
-                <!-- News Item 2 -->
+                <!-- News Item 3 -->
                 <article class="card news-card reveal">
                     <div class="news-img">
-                        <span class="news-tag">Jugend</span>
-                        <img src="Bilder/Allgemein/U10.png" alt="Jugendfussball" onerror="this.src='QR_Code_Homepage.png';">
+                        <span class="news-tag">Turnier</span>
+                        <img src="Bilder/Allgemein/Elfmeterturnier.jpeg" alt="Elfmeterturnier" onerror="this.src='QR_Code_Homepage.png';">
                     </div>
                     <div class="news-info">
                         <span class="news-date">18. Juni 2026</span>
@@ -270,6 +284,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- --- LIGHTBOX MODAL FOR IMAGES --- -->
+    <div id="image-lightbox" class="lightbox" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" aria-label="Schließen">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Einladung Saisonauftakt">
+        </div>
+    </div>
 
     <script src="js/main.js?v=1.4"></script>
 </body>

@@ -197,4 +197,52 @@ document.addEventListener('DOMContentLoaded', () => {
         yearEl.textContent = new Date().getFullYear();
     }
     
+    // --- 9. LIGHTBOX / MODAL FOR IMAGES ---
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+    if (lightbox && lightboxImg && lightboxClose) {
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const imageSrc = trigger.getAttribute('data-lightbox') || trigger.getAttribute('src') || trigger.getAttribute('href');
+                if (imageSrc) {
+                    lightboxImg.src = imageSrc;
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            // Restore body scroll ONLY if mobile menu is not active
+            const navLinks = document.querySelector('.nav-links');
+            if (!navLinks || !navLinks.classList.contains('mobile-active')) {
+                document.body.style.overflow = '';
+            }
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // Close on clicking outside the content
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+    
 });
