@@ -244,5 +244,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+    // --- 10. HORIZONTAL NEWS SLIDER ---
+    const newsTrack = document.getElementById('news-track');
+    const newsPrevBtn = document.getElementById('news-prev');
+    const newsNextBtn = document.getElementById('news-next');
+    const newsThumb = document.getElementById('news-scroll-thumb');
+
+    if (newsTrack) {
+        const updateSliderState = () => {
+            const maxScrollLeft = newsTrack.scrollWidth - newsTrack.clientWidth;
+            const currentScroll = newsTrack.scrollLeft;
+
+            if (newsPrevBtn) {
+                newsPrevBtn.disabled = currentScroll <= 2;
+            }
+            if (newsNextBtn) {
+                newsNextBtn.disabled = currentScroll >= maxScrollLeft - 2;
+            }
+
+            if (newsThumb && maxScrollLeft > 0) {
+                const scrollRatio = Math.min(Math.max(currentScroll / maxScrollLeft, 0), 1);
+                const thumbWidthPercent = Math.max(20, (newsTrack.clientWidth / newsTrack.scrollWidth) * 100);
+                newsThumb.style.width = `${thumbWidthPercent}%`;
+                const maxTranslatePercent = (100 - thumbWidthPercent) * (100 / thumbWidthPercent);
+                newsThumb.style.transform = `translateX(${scrollRatio * maxTranslatePercent}%)`;
+            }
+        };
+
+        const getScrollDistance = () => {
+            const slide = newsTrack.querySelector('.news-slide');
+            if (slide) {
+                const style = window.getComputedStyle(newsTrack);
+                const gap = parseFloat(style.gap) || 28;
+                return slide.getBoundingClientRect().width + gap;
+            }
+            return 320;
+        };
+
+        if (newsNextBtn) {
+            newsNextBtn.addEventListener('click', () => {
+                newsTrack.scrollBy({ left: getScrollDistance(), behavior: 'smooth' });
+            });
+        }
+
+        if (newsPrevBtn) {
+            newsPrevBtn.addEventListener('click', () => {
+                newsTrack.scrollBy({ left: -getScrollDistance(), behavior: 'smooth' });
+            });
+        }
+
+        newsTrack.addEventListener('scroll', updateSliderState, { passive: true });
+        window.addEventListener('resize', updateSliderState);
+
+        // Desktop mouse drag to scroll
+        let isDragging = false;
+        let startX = 0;
+        let scrollStart = 0;
+        let moved = false;
+
+        newsTrack.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            moved = false;
+            startX = e.pageX - newsTrack.offsetLeft;
+            scrollStart = newsTrack.scrollLeft;
+            newsTrack.style.cursor = 'grabbing';
+            newsTrack.style.scrollBehavior = 'auto';
+            newsTrack.style.scrollSnapType = 'none';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const x = e.pageX - newsTrack.offsetLeft;
+            const distance = (x - startX);
+            if (Math.abs(distance) > 5) {
+                moved = true;
+            }
+            newsTrack.scrollLeft = scrollStart - distance;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            newsTrack.style.cursor = '';
+            newsTrack.style.scrollBehavior = 'smooth';
+            newsTrack.style.scrollSnapType = 'x mandatory';
+        });
+
+        // Prevent accidental link/lightbox triggers when dragging
+        newsTrack.addEventListener('click', (e) => {
+            if (moved) {
+                e.preventDefault();
+                e.stopPropagation();
+                moved = false;
+            }
+        }, true);
+
+        // Initial setup
+        setTimeout(updateSliderState, 150);
+    }
     
 });

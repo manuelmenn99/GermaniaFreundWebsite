@@ -125,68 +125,100 @@
     <!-- --- NEWS SECTION --- -->
     <section class="section section-bg" id="aktuelles">
         <div class="container">
-            <h2 class="reveal">Aktuelles vom Verein</h2>
+            <div class="section-header-row reveal">
+                <div>
+                    <span class="section-subtitle" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.25rem;">Neuigkeiten</span>
+                    <h2>Aktuelles vom Verein</h2>
+                </div>
+                <!-- Navigation Buttons for Horizontal Scroll -->
+                <div class="news-slider-nav">
+                    <button class="slider-btn slider-prev" id="news-prev" aria-label="Vorherige Beiträge" title="Zurück">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="slider-btn slider-next" id="news-next" aria-label="Nächste Beiträge" title="Weiter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
             
-            <div class="grid grid-3">
-                
-                <!-- News Item 1 (Saisonauftakt Invitation) -->
-                <article class="card news-card reveal">
-                    <div class="news-img">
-                        <span class="news-tag">Event</span>
-                        <img src="Bilder/Allgemein/Saisonauftakt_2026.jpg" alt="Einladung Saisonauftakt" class="lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="cursor: pointer;">
-                    </div>
-                    <div class="news-info">
-                        <span class="news-date">15. August 2026</span>
-                        <h3>Einladung zum Saisonauftakt am 30.08.</h3>
-                        <p>Am Sonntag, den 30. August starten wir gemeinsam in die neue Saison! Freut euch auf spannende Heimspiele unserer Herrenteams sowie unserer neu formierten Frauen-Mannschaft. Für Speisen &amp; Getränke ist bestens gesorgt.</p>
-                        <a href="Bilder/Allgemein/Saisonauftakt_2026.jpg" class="btn btn-secondary btn-sm lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="align-self: flex-start;">Einladung ansehen</a>
-                    </div>
-                </article>
-                
-                <!-- News Item 2 -->
-                <article class="card news-card reveal">
-                    <div class="news-img">
-                        <span class="news-tag">Senioren</span>
-                        <img src="Bilder/Fussball/Herren_01.jpg" alt="1. Mannschaft Training" onerror="this.src='Bilder/Fussball/1_Mannschaft_22_23.JPG';">
-                    </div>
-                    <div class="news-info">
-                        <span class="news-date">02. Juli 2026</span>
-                        <h3>Neuausrichtung für die Saison 2026/27</h3>
-                        <p>Nach einer herausfordernden Spielzeit stellt sich der Germania Freund für die neue Saison im Herrenbereich neu auf. Mit zwei motivierten Herrenteams starten wir in der Kreisliga B und Kreisliga D voll durch.</p>
-                        <a href="mannschaften.html" class="btn btn-secondary btn-sm" style="align-self: flex-start;">Kader ansehen</a>
-                    </div>
-                </article>
-                
-                <!-- News Item 3 -->
-                <article class="card news-card reveal">
-                    <div class="news-img">
-                        <span class="news-tag">Turnier</span>
-                        <img src="Bilder/Allgemein/Elfmeterturnier.jpeg" alt="Elfmeterturnier" onerror="this.src='QR_Code_Homepage.png';">
-                    </div>
-                    <div class="news-info">
-                        <span class="news-date">18. Juni 2026</span>
-                        <h3>Erfolgreiches Elfmeterturnier</h3>
-                        <p>Am 18. Juni war es wieder soweit: Das Elfmeterturnier in Freund hat wieder stattgefunden. Viele bekannte und teils neue Gesichter haben sich Brander Wald getroffen um bei bester Laune aus 11 Metern die Bälle zu versenken.</p>
-                        
-                    </div>
-                </article>
-                
-                <!-- News Item 3 -->
-                <!--
-				<article class="card news-card reveal">
-                    <div class="news-img">
-                        <span class="news-tag">Merge</span>
-                        <img src="Bilder/Laufgruppe/AdobeStock_198337827.jpeg" alt="Laufgruppe Aktion">
-                    </div>
-                    <div class="news-info">
-                        <span class="news-date">24. Mai 2026</span>
-                        <h3>Gemeinsam stark beim Aachener Firmenlauf</h3>
-                        <p>Ein toller Teamerfolg! Unsere Laufgruppe war auch in diesem Jahr wieder beim Aachener Firmenlauf vertreten. Mit hervorragenden Zeiten und bester Stimmung haben wir die Germania würdig repräsentiert.</p>
-                        <a href="laufgruppe.html" class="btn btn-secondary btn-sm" style="align-self: flex-start;">Laufberichte</a>
-                    </div>
-                </article>
-				-->
-                
+            <div class="news-slider-container reveal">
+                <div class="news-track" id="news-track">
+                    
+                    <!-- News Item 1 (DFB-Campus Clubberatung) -->
+                    <article class="card news-card news-slide">
+                        <div class="news-img">
+                            <span class="news-tag">Verein</span>
+                            <img src="Bilder/Allgemein/dfb_clubberatung.jpg" alt="DFB-Clubberatung am DFB-Campus" class="lightbox-trigger" data-lightbox="Bilder/Allgemein/dfb_clubberatung.jpg" style="cursor: pointer; object-position: center 20%;">
+                        </div>
+                        <div class="news-info">
+                            <span class="news-date">08. September 2026</span>
+                            <h3>DFB-Clubberatung am DFB-Campus</h3>
+                            <p>Unsere Germania möchte sich weiterentwickeln und hat sich am DFB-Campus in Frankfurt Unterstützung beim DFB-Clubberater Thomas Hütte für gute Ideen eingeholt.</p>
+                            <a href="Bilder/Allgemein/dfb_clubberatung.jpg" class="btn btn-secondary btn-sm lightbox-trigger" data-lightbox="Bilder/Allgemein/dfb_clubberatung.jpg" style="align-self: flex-start;">Foto ansehen</a>
+                        </div>
+                    </article>
+
+                    <!-- News Item 2 (Saisonauftakt Invitation) -->
+                    <article class="card news-card news-slide">
+                        <div class="news-img">
+                            <span class="news-tag">Event</span>
+                            <img src="Bilder/Allgemein/Saisonauftakt_2026.jpg" alt="Einladung Saisonauftakt" class="lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="cursor: pointer;">
+                        </div>
+                        <div class="news-info">
+                            <span class="news-date">15. August 2026</span>
+                            <h3>Einladung zum Saisonauftakt am 30.08.</h3>
+                            <p>Am Sonntag, den 30. August starten wir gemeinsam in die neue Saison! Freut euch auf spannende Heimspiele unserer Herrenteams sowie unserer neu formierten Frauen-Mannschaft. Für Speisen &amp; Getränke ist bestens gesorgt.</p>
+                            <a href="Bilder/Allgemein/Saisonauftakt_2026.jpg" class="btn btn-secondary btn-sm lightbox-trigger" data-lightbox="Bilder/Allgemein/Saisonauftakt_2026.jpg" style="align-self: flex-start;">Einladung ansehen</a>
+                        </div>
+                    </article>
+                    
+                    <!-- News Item 3 (Neuausrichtung) -->
+                    <article class="card news-card news-slide">
+                        <div class="news-img">
+                            <span class="news-tag">Senioren</span>
+                            <img src="Bilder/Fussball/Herren_01.jpg" alt="1. Mannschaft Training" onerror="this.src='Bilder/Fussball/1_Mannschaft_22_23.JPG';">
+                        </div>
+                        <div class="news-info">
+                            <span class="news-date">02. Juli 2026</span>
+                            <h3>Neuausrichtung für die Saison 2026/27</h3>
+                            <p>Nach einer herausfordernden Spielzeit stellt sich der Germania Freund für die neue Saison im Herrenbereich neu auf. Mit zwei motivierten Herrenteams starten wir in der Kreisliga B und Kreisliga D voll durch.</p>
+                            <a href="mannschaften.html" class="btn btn-secondary btn-sm" style="align-self: flex-start;">Kader ansehen</a>
+                        </div>
+                    </article>
+                    
+                    <!-- News Item 4 (Elfmeterturnier) -->
+                    <article class="card news-card news-slide">
+                        <div class="news-img">
+                            <span class="news-tag">Turnier</span>
+                            <img src="Bilder/Allgemein/Elfmeterturnier.jpeg" alt="Elfmeterturnier" onerror="this.src='QR_Code_Homepage.png';">
+                        </div>
+                        <div class="news-info">
+                            <span class="news-date">18. Juni 2026</span>
+                            <h3>Erfolgreiches Elfmeterturnier</h3>
+                            <p>Am 18. Juni war es wieder soweit: Das Elfmeterturnier in Freund hat wieder stattgefunden. Viele bekannte und teils neue Gesichter haben sich Brander Wald getroffen um bei bester Laune aus 11 Metern die Bälle zu versenken.</p>
+                        </div>
+                    </article>
+                    
+                    <!-- News Item 5 (Firmenlauf) -->
+                    <article class="card news-card news-slide">
+                        <div class="news-img">
+                            <span class="news-tag">Laufgruppe</span>
+                            <img src="Bilder/Laufgruppe/AdobeStock_198337827.jpeg" alt="Laufgruppe Aktion">
+                        </div>
+                        <div class="news-info">
+                            <span class="news-date">24. Mai 2026</span>
+                            <h3>Gemeinsam stark beim Aachener Firmenlauf</h3>
+                            <p>Ein toller Teamerfolg! Unsere Laufgruppe war auch in diesem Jahr wieder beim Aachener Firmenlauf vertreten. Mit hervorragenden Zeiten und bester Stimmung haben wir die Germania würdig repräsentiert.</p>
+                            <a href="laufgruppe.html" class="btn btn-secondary btn-sm" style="align-self: flex-start;">Laufberichte</a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+
+            <!-- Scroll Progress Indicator -->
+            <div class="news-scroll-indicator" aria-hidden="true">
+                <div class="news-scroll-thumb" id="news-scroll-thumb"></div>
             </div>
         </div>
     </section>
