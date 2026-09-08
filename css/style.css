@@ -959,7 +959,7 @@ p {
     border: none;
     padding: 0;
     width: 100%;
-    height: 220px;
+    height: 235px;
     perspective: 1000px;
     display: block;
 }
@@ -988,7 +988,7 @@ p {
     -webkit-backface-visibility: hidden;
     border-radius: 10px;
     border: 1px solid var(--glass-border);
-    padding: 1.5rem 1rem;
+    padding: 1.2rem 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -999,6 +999,8 @@ p {
     background: var(--glass-bg);
     color: var(--text-primary);
     transition: var(--transition-smooth);
+    z-index: 2;
+    pointer-events: auto;
 }
 
 .youth-item-front.has-photo {
@@ -1070,6 +1072,13 @@ p {
 .youth-item.flipped .youth-item-front {
     box-shadow: var(--accent-shadow);
     border-color: var(--accent);
+    pointer-events: none !important;
+    z-index: 1;
+}
+
+.youth-item:hover .youth-item-front *,
+.youth-item.flipped .youth-item-front * {
+    pointer-events: none !important;
 }
 
 .youth-item-back {
@@ -1080,21 +1089,29 @@ p {
     color: var(--text-primary);
     transform: rotateY(180deg);
     box-shadow: var(--accent-shadow);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.youth-item:hover .youth-item-back,
+.youth-item.flipped .youth-item-back {
+    pointer-events: auto !important;
+    z-index: 10;
 }
 
 .youth-item-back h4 {
-    font-size: 0.8rem;
-    margin: 0 0 2px 0;
+    font-size: 0.75rem;
+    margin: 0 0 1px 0;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .youth-item-back p {
-    font-size: 0.75rem;
-    margin: 0 0 8px 0;
+    font-size: 0.72rem;
+    margin: 0 0 6px 0;
     color: var(--text-secondary);
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 .youth-item-back a {
@@ -1102,6 +1119,65 @@ p {
     color: var(--text-primary);
     text-decoration: underline;
     transition: var(--transition-smooth);
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 20;
+}
+
+.youth-item-back a:hover {
+    color: var(--accent);
+}
+
+.youth-back-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+
+.youth-btn-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 4px 10px;
+    width: 85%;
+    max-width: 170px;
+    text-decoration: none !important;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25;
+}
+
+.youth-btn-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.youth-btn-photo {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+.youth-btn-photo:hover {
+    background: #ffffff;
+    color: #000000 !important;
+    border-color: #ffffff;
 }
 
 .youth-item-back a:hover {
